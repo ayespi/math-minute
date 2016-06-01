@@ -1,6 +1,9 @@
 $(document).on("ready", function(){
     var problemNumber = 0;
     var amountProblems = 60;
+    var numCorrect = 0;
+    $(".total").text(amountProblems);
+    $(".correct").text(numCorrect);
     while(problemNumber < amountProblems){
         $(".board").append(additionProblemUpTo(10));
         problemNumber += 1;
@@ -14,6 +17,8 @@ $(document).on("ready", function(){
         if(guess == correctAnswer){
             input.css("background-color", colorGood);
             input.parent().fadeOut();
+            numCorrect += 1;
+            $(".correct").text(numCorrect);
         }else{
             input.css("background-color", colorBad);
         }
