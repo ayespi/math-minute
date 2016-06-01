@@ -26,7 +26,11 @@ $(document).on("ready", function(){
     
     var time = 60;
     $(".timeleft").text(time);
-    setInterval(countDown, 1000);
+    $(".start").on("click", function(){
+        var button = $(this);
+        button.prop("disabled", true);
+        setInterval(countDown, 1000);
+    });
     
     function countDown(){
         time = time - 1;
