@@ -4,31 +4,32 @@ $(document).on("ready", function(){
     var numCorrect = 0;
     $(".total").text(amountProblems);
     $(".correct").text(numCorrect);
-    while(problemNumber < amountProblems){
-        $(".board").append(additionProblemUpTo(10));
-        problemNumber += 1;
-    }
-    $("input").on("change", function(){
-        var input = $(this);
-        var correctAnswer = input.attr("secret-answer");
-        var guess = input.val();
-        var colorGood = "#afa";
-        var colorBad = "#faa";
-        if(guess == correctAnswer){
-            input.css("background-color", colorGood);
-            input.parent().fadeOut();
-            numCorrect += 1;
-            $(".correct").text(numCorrect);
-        }else{
-            input.css("background-color", colorBad);
-        }
-    });
     
     var time = 60;
     $(".timeleft").text(time);
     $(".start").on("click", function(){
         var button = $(this);
         button.prop("disabled", true);
+        problemNumber = 0;
+        while(problemNumber < amountProblems){
+            $(".board").append(additionProblemUpTo(10));
+            problemNumber += 1;
+        }
+        $("input").on("change", function(){
+            var input = $(this);
+            var correctAnswer = input.attr("secret-answer");
+            var guess = input.val();
+            var colorGood = "#afa";
+            var colorBad = "#faa";
+            if(guess == correctAnswer){
+                input.css("background-color", colorGood);
+                input.parent().fadeOut();
+                numCorrect += 1;
+                $(".correct").text(numCorrect);
+            }else{
+                input.css("background-color", colorBad);
+            }
+        });
         setInterval(countDown, 1000);
     });
     
