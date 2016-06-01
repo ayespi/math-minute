@@ -23,6 +23,15 @@ $(document).on("ready", function(){
             input.css("background-color", colorBad);
         }
     });
+    
+    var time = 60;
+    $(".timeleft").text(time);
+    setInterval(countDown, 1000);
+    
+    function countDown(){
+        time = time - 1;
+        $(".timeleft").text(time);
+    }
 });
 
 function randomNumberUpTo(maximum){
