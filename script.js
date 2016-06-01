@@ -1,12 +1,14 @@
 $(document).on("ready", function(){
-
-    var firstNumber = randomNumberUpTo(10);
-    var secondNumber = randomNumberUpTo(10);
-    var sum = (firstNumber + secondNumber);
-    $(".board").append("<h2>" + firstNumber + " + " + secondNumber + " = " + sum);
-
+    $(".board").append(additionProblemUpTo(10));
 });
 
 function randomNumberUpTo(maximum){
     return Math.round(Math.random() * maximum);
+}
+
+function additionProblemUpTo(maximum){
+    var firstNumber = randomNumberUpTo(maximum);
+    var secondNumber = randomNumberUpTo(maximum);
+    var sum = (firstNumber + secondNumber);
+    return ("<h2>" + firstNumber + " + " + secondNumber + " = " + sum);
 }
