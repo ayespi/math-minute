@@ -1,5 +1,10 @@
 $(document).on("ready", function(){
-    $(".board").append(additionProblemUpTo(10));
+    var problemNumber = 0;
+    var amountProblems = 60;
+    while(problemNumber < amountProblems){
+        $(".board").append(additionProblemUpTo(10));
+        problemNumber += 1;
+    }
 });
 
 function randomNumberUpTo(maximum){
