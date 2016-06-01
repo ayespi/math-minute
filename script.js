@@ -6,6 +6,7 @@ $(document).on("ready", function(){
     $(".correct").text(numCorrect);
     
     var time = 60;
+    var timingFunction = null;
     $(".timeleft").text(time);
     $(".start").on("click", function(){
         var button = $(this);
@@ -30,12 +31,16 @@ $(document).on("ready", function(){
                 input.css("background-color", colorBad);
             }
         });
-        setInterval(countDown, 1000);
+        timingFunction = setInterval(countDown, 1000);
     });
     
     function countDown(){
         time = time - 1;
         $(".timeleft").text(time);
+        if(time === 0){
+            clearInterval(timingFunction);
+            $("input").prop("disabled", true);
+        }
     }
 });
 
