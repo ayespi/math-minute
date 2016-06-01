@@ -13,6 +13,7 @@ $(document).on("ready", function(){
         var colorBad = "#faa";
         if(guess == correctAnswer){
             input.css("background-color", colorGood);
+            input.parent().fadeOut();
         }else{
             input.css("background-color", colorBad);
         }
