@@ -9,10 +9,12 @@ $(document).on("ready", function(){
         var input = $(this);
         var correctAnswer = input.attr("secret-answer");
         var guess = input.val();
+        var colorGood = "#afa";
+        var colorBad = "#faa";
         if(guess == correctAnswer){
-            input.css("background-color", "#afa");
+            input.css("background-color", colorGood);
         }else{
-            input.css("background-color", "#faa");
+            input.css("background-color", colorBad);
         }
     });
 });
